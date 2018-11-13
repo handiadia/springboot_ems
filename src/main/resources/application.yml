@@ -1,0 +1,28 @@
+#项目访问地址及端口号
+server:
+  context-path: /springboot
+  port: 8989
+  jsp-servlet:
+    init-parameters:
+      development: true
+#配置post请求中文乱码
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+mybatis:
+  mapper-locations: com/baizhi/mapper/*.xml
+  type-aliases-package: com.baizhi.entity
+#mybatis相关配置  数据源对象
+spring:
+  datasource:
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.70.131:3306/springmvc
+    type: com.alibaba.druid.pool.DruidDataSource
+#视图解析器
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
