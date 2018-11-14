@@ -1,4 +1,5 @@
 <%@ page isELIgnored="false" contentType="text/html; UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -30,44 +31,46 @@
             <h1>
                 Welcome !
             </h1>
-            <table class="table">
-                <tr class="table_header">
-                    <td>
-                        ID
-                    </td>
-                    <td>
-                        Name
-                    </td>
-                    <td>
-                        Salary
-                    </td>
-                    <td>
-                        Age
-                    </td>
-                    <td>
-                        Bir
-                    </td>
-                    <td>
-                        Sex
-                    </td>
-                    <td>
-                        Operation
-                    </td>
-                </tr>
-                <tr th:class="${empState.odd ? 'row2':'row1'}" th:each="emp,empState:${emps}">
-                    <td th:text="${emp.id}"/>
-                    <td th:text="${emp.name}"/>
-                    <td th:text="${emp.salary}"/>
-                    <td th:text="${emp.age}"/>
-                    <td th:text="${#calendars.format(emp.bir,'yyyy-MM-dd')}"/>
-                    <td th:text="${emp.sex ? '男':'女' }"/>
-                    <td>
-                        <a th:href="@{/emp/delete(id=${emp.id})}">delete emp</a>&nbsp;
-                        <a th:href="@{/emp/findOne(id=${emp.id})}">update emp</a>
-                    </td>
-                </tr>
+            <c:forEach items="${requestScope.queryAll}" var="emp">
+                <table class="table">
+                    <tr class="table_header">
+                        <td>
+                            ID
+                        </td>
+                        <td>
+                            Name
+                        </td>
+                        <td>
+                            Salary
+                        </td>
+                        <td>
+                            Age
+                        </td>
+                        <td>
+                            Bir
+                        </td>
+                        <td>
+                            Sex
+                        </td>
+                        <td>
+                            Operation
+                        </td>
+                    </tr>
+                    <tr th:class="${empState.odd ? 'row2':'row1'}" th:each="emp,empState:${emps}">
+                        <td th:text="${emp.id}"/>
+                        <td th:text="${emp.name}"/>
+                        <td th:text="${emp.salary}"/>
+                        <td th:text="${emp.age}"/>
+                        <td th:text="${emp.bir}"/>
+                        <td th:text="${emp.sex}"/>
+                        <td>
+                            <a th:href="@{/emp/delete(id=${emp.id})}">delete emp</a>&nbsp;
+                            <a th:href="@{/emp/findOne(id=${emp.id})}">update emp</a>
+                        </td>
+                    </tr>
 
-            </table>
+                </table>
+            </c:forEach>
             <p>
                 <a th:href="@{/emp/addEmp}">添加员工信息</a>
             </p>

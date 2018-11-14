@@ -10,19 +10,20 @@ server:
     encoding:
       charset: UTF-8
       force: true
-mybatis:
-  mapper-locations: com/baizhi/mapper/*.xml
-  type-aliases-package: com.baizhi.entity
+
 #mybatis相关配置  数据源对象
 spring:
   datasource:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.70.131:3306/springmvc
+    url: jdbc:mysql://localhost/springmvc
     type: com.alibaba.druid.pool.DruidDataSource
 #视图解析器
   mvc:
     view:
       prefix: /
       suffix: .jsp
+mybatis:
+  mapper-locations: classpath:com/baizhi/mapper/*.xml
+  type-aliases-package: com.baizhi.entity
