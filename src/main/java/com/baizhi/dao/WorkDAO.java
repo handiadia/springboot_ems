@@ -4,6 +4,7 @@ import com.baizhi.entity.Work;
 
 import java.util.List;
 
+
 public interface WorkDAO {
     /*查询所有*/
     List<Work> queryAll();

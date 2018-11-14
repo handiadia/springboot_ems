@@ -28,8 +28,8 @@ public class WorkController {
     @RequestMapping("save")
     public void save(Work work) {
         workService.save(work);
-    }
 
+    }
     @RequestMapping("update")
     public void update(Work work) {
         workService.update(work);
