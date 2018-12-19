@@ -42,6 +42,7 @@ public class WorkController {
 
     @RequestMapping("queryOneId")
     public void queryOneId(String id) {
+
         workService.queryOneId(id);
     }
 
